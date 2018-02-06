@@ -15,4 +15,10 @@ Vagrant.configure(2) do |config|
     config.vm.network :forwarded_port, guest: 80, host: 10081
   end
 
+  config.vm.define :xenial do |config|
+    config.vm.box = "ubuntu/xenial64"
+    config.vm.synced_folder ".", "/vagrant"
+    config.vm.network :forwarded_port, guest: 80, host: 10082
+  end
+
 end
