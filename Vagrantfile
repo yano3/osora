@@ -39,10 +39,16 @@ Vagrant.configure(2) do |config|
     config.vm.network :forwarded_port, guest: 80, host: 10082
   end
 
+  config.vm.define :debian10 do |config|
+    config.vm.box = "debian/buster64"
+    config.vm.synced_folder ".", "/vagrant"
+    config.vm.network :forwarded_port, guest: 80, host: 30080
+  end
+
   config.vm.define :debian9 do |config|
     config.vm.box = "debian/stretch64"
     config.vm.synced_folder ".", "/vagrant"
-    config.vm.network :forwarded_port, guest: 80, host: 30080
+    config.vm.network :forwarded_port, guest: 80, host: 30081
   end
 
 end
