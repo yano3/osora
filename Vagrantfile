@@ -15,12 +15,6 @@ Vagrant.configure(2) do |config|
     config.vm.network :forwarded_port, guest: 80, host: 20081
   end
 
-  config.vm.define :centos6 do |config|
-    config.vm.box = "centos/6"
-    config.vm.synced_folder ".", "/vagrant"
-    config.vm.network :forwarded_port, guest: 80, host: 20082
-  end
-
   config.vm.define :focal do |config|
     config.vm.box = "ubuntu/focal64"
     config.vm.synced_folder ".", "/vagrant"
